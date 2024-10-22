@@ -1,20 +1,22 @@
-# Quiz App
+# React Quiz Application
 
-This is a simple quiz application built using **React**, which fetches multiple-choice questions from the Open Trivia Database API and allows users to answer them within a limited time frame. After completion, users can see their score and restart the quiz.
+This is a simple quiz application built using **React**. The quiz displays multiple-choice questions and provides a timer for answering each question. After submitting an answer, the user can see whether the answer was correct or incorrect, and move to the next question. The quiz tracks the score and displays the final results at the end.
 
 ## Features
 
-- Fetches dynamic quiz questions from the [Open Trivia Database](https://opentdb.com/api_config.php).
-- Time-limited quiz questions.
-- Displays results at the end of the quiz.
-- Allows users to restart the quiz after completion.
+- Multiple-choice quiz with hardcoded questions.
+- Timer for answering each question (60 seconds per question).
+- Immediate feedback on correct/incorrect answers.
+- Option to move to the next question after submitting an answer.
+- Final score displayed at the end of the quiz.
+- Responsive design for mobile and desktop screens.
 
 ## Prerequisites
 
-Before running this project, make sure you have the following installed on your system:
+Before running the project, make sure you have the following installed on your machine:
 
 - **Node.js**: Download and install from [here](https://nodejs.org/).
-- **npm**: This typically comes with Node.js. You can check if npm is installed by running the following command in your terminal:
+- **npm**: This typically comes with Node.js. You can verify the installation by running the following command in your terminal:
   ```bash
   npm -v
   ```
@@ -23,77 +25,106 @@ Before running this project, make sure you have the following installed on your 
 
 ### 1. Clone the Repository
 
-First, clone the repository to your local machine:
+First, clone the repository to your local machine by running the following command in your terminal:
 
 ```bash
-git clone https://github.com/yourusername/quiz-app.git
+git clone https://github.com/yourusername/react-quiz-app.git
 ```
 
-Navigate into the project directory:
+Then, navigate into the project directory:
 
 ```bash
-cd quiz-app
+cd react-quiz-app
 ```
 
 ### 2. Install Dependencies
 
-To install all necessary dependencies, run the following command:
+Next, install the dependencies needed for the project:
 
 ```bash
 npm install
 ```
 
-This will install the React framework and any other dependencies specified in `package.json`.
+This will install React and other required libraries specified in `package.json`.
 
 ### 3. Start the Development Server
 
-Once all dependencies are installed, you can start the development server with:
+To run the application in development mode, use the following command:
 
 ```bash
 npm start
 ```
 
-This will start the application and open it in your default web browser at `http://localhost:3000`.
+This will start the development server, and the application will automatically open in your browser at `http://localhost:3000`.
 
-### 4. Running the Application
+### 4. Running the Quiz
 
-After starting the development server:
+Once the application is running:
 
-1. The application will fetch quiz questions from the Open Trivia Database API.
-2. You will see a series of questions with multiple options.
-3. Select an answer and click "Submit."
-4. If the answer is correct, it will be highlighted in green. If incorrect, the correct answer will be shown in green, and your selected option will be shown in red.
-5. After each question, click "Next" to move to the following question.
-6. Once you complete all questions, your final score will be displayed. You can then choose to restart the quiz.
+1. You will see a series of multiple-choice questions.
+2. Each question comes with four options. Click on one of the options to select your answer.
+3. After selecting an option, click "Submit." If your answer is correct, it will be highlighted in green; if incorrect, the correct answer will be highlighted in green and your wrong answer in red.
+4. After submitting an answer, the "Submit" button changes to "Next." Click it to move to the next question.
+5. You have 60 seconds to answer each question. If time runs out, you will receive an alert to reload the page.
+6. After completing all the questions, you will see your final score.
 
 ### 5. Restarting the Quiz
 
-After completing the quiz, you can click the "Try Again" button to reload the quiz with new questions from the API.
+Once you have completed the quiz, you can restart it by clicking the "Try Again" button, which will reload the page and reset the quiz.
+
+## Project Structure
+
+- **`src/Questionnaire.js`**: Contains the core logic of the quiz, including the questions, timer, answer selection, and feedback mechanism.
+- **`src/App.js`**: Main entry point where the `Questionnaire` component is rendered.
+- **`src/App.css`**: Contains the styling for the quiz interface, ensuring a clean and responsive UI.
+
+## Modifying Questions
+
+You can modify the hardcoded questions inside `src/Questionnaire.js`. Simply add or modify objects in the `questions` array, where each object represents a question:
+
+```js
+const [questions] = useState([
+  {
+    questionText: "What is the capital of France?",
+    options: ["Berlin", "Madrid", "Paris", "Rome"],
+    correctAnswer: 2,
+  },
+  {
+    questionText: "What is the largest planet in our solar system?",
+    options: ["Earth", "Mars", "Jupiter", "Saturn"],
+    correctAnswer: 2,
+  },
+  // Add more questions here
+]);
+```
+
+Each question object should include:
+- `questionText`: The question to display.
+- `options`: An array of possible answers.
+- `correctAnswer`: The index (starting from 0) of the correct answer in the `options` array.
 
 ## Additional Commands
 
-- **To stop the development server**, press `Ctrl + C` in the terminal where the server is running.
-- **To rebuild the app for production**, use:
+- **To stop the development server**, press `Ctrl + C` in the terminal.
+- **To build the app for production**, run:
   ```bash
   npm run build
   ```
   This will create an optimized production build of the app in the `build/` folder.
 
----
+## Technologies Used
 
-### Notes:
+- **React**: A JavaScript library for building user interfaces.
+- **CSS**: For styling the quiz interface.
+- **JavaScript**: For handling the quiz logic and user interactions.
 
-- This project fetches questions dynamically from the **Open Trivia Database API**. The number of questions fetched can be modified by adjusting the `amount` parameter in the API URL in `Questionnaire.js`.
-- The project is designed to work with any browser. Ensure you have an updated version of Chrome, Firefox, or Edge for optimal performance.
+## Troubleshooting
 
-### Troubleshooting
+If you encounter any issues while installing or running the project:
 
-If you encounter issues during installation or while running the application, try the following:
-
-- Ensure that **Node.js** and **npm** are installed correctly.
-- Run `npm install` again to ensure all packages are properly installed.
-- If the app doesn't open automatically in the browser, navigate manually to `http://localhost:3000` in your browser.
-
----
-
-This guide should help you run the project smoothly. You can add or modify sections based on your specific environment or use case. Let me know if you need any further details!
+- Make sure **Node.js** and **npm** are installed correctly.
+- Run `npm install` again to ensure that all dependencies are installed.
+- Ensure that no other application is running on port 3000 (the default port for React apps). If it is, either stop the application or modify the port by running `npm start` on a different port:
+  ```bash
+  PORT=3001 npm start
+  ```
