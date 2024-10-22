@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple quiz application built using **React**, which fetches multiple-choice questions from the Open Trivia Database API and allows users to answer them within a limited time frame. After completion, users can see their score and restart the quiz.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Fetches dynamic quiz questions from the [Open Trivia Database](https://opentdb.com/api_config.php).
+- Time-limited quiz questions.
+- Displays results at the end of the quiz.
+- Allows users to restart the quiz after completion.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Before running this project, make sure you have the following installed on your system:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Node.js**: Download and install from [here](https://nodejs.org/).
+- **npm**: This typically comes with Node.js. You can check if npm is installed by running the following command in your terminal:
+  ```bash
+  npm -v
+  ```
 
-### `npm test`
+## How to Run the Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the Repository
 
-### `npm run build`
+First, clone the repository to your local machine:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/yourusername/quiz-app.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navigate into the project directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd quiz-app
+```
 
-### `npm run eject`
+### 2. Install Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To install all necessary dependencies, run the following command:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This will install the React framework and any other dependencies specified in `package.json`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Start the Development Server
 
-## Learn More
+Once all dependencies are installed, you can start the development server with:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will start the application and open it in your default web browser at `http://localhost:3000`.
 
-### Code Splitting
+### 4. Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+After starting the development server:
 
-### Analyzing the Bundle Size
+1. The application will fetch quiz questions from the Open Trivia Database API.
+2. You will see a series of questions with multiple options.
+3. Select an answer and click "Submit."
+4. If the answer is correct, it will be highlighted in green. If incorrect, the correct answer will be shown in green, and your selected option will be shown in red.
+5. After each question, click "Next" to move to the following question.
+6. Once you complete all questions, your final score will be displayed. You can then choose to restart the quiz.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 5. Restarting the Quiz
 
-### Making a Progressive Web App
+After completing the quiz, you can click the "Try Again" button to reload the quiz with new questions from the API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Additional Commands
 
-### Advanced Configuration
+- **To stop the development server**, press `Ctrl + C` in the terminal where the server is running.
+- **To rebuild the app for production**, use:
+  ```bash
+  npm run build
+  ```
+  This will create an optimized production build of the app in the `build/` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+### Notes:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- This project fetches questions dynamically from the **Open Trivia Database API**. The number of questions fetched can be modified by adjusting the `amount` parameter in the API URL in `Questionnaire.js`.
+- The project is designed to work with any browser. Ensure you have an updated version of Chrome, Firefox, or Edge for optimal performance.
 
-### `npm run build` fails to minify
+### Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you encounter issues during installation or while running the application, try the following:
+
+- Ensure that **Node.js** and **npm** are installed correctly.
+- Run `npm install` again to ensure all packages are properly installed.
+- If the app doesn't open automatically in the browser, navigate manually to `http://localhost:3000` in your browser.
+
+---
+
+This guide should help you run the project smoothly. You can add or modify sections based on your specific environment or use case. Let me know if you need any further details!
